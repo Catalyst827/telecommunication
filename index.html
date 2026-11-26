@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robast Telecomunication Software</title>
+    <style>
+         :root {
+            --bg: #eef2ff;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e5e7eb;
+            --brand: #0b5cff;
+            --shadow: 0 10px 24px rgba(2, 6, 23, .08);
+            --radius: 14px;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .wrap {
+            width: min(1500px, 96vw);
+            margin: 0 auto;
+            padding: 18px 0 70px;
+        }
+        
+        header {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 16px 16px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 360px;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, #1d4ed8, #0b5cff);
+            color: #fff;
+            font-weight: 900;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(0, 0, 0, .05);
+        }
+        
+        .brand h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: .2px;
+        }
+        
+        .brand p {
+            margin: 3px 0 0;
+            color: var(--muted);
+            font-size: 13.5px;
+        }
+        
+        .social {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        
+        .social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 13.5px;
+        }
+        
+        .social a:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .social a svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+            fill: currentColor;
+            flex: 0 0 auto;
+        }
+        
+        .hero {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 14px;
+            align-items: start;
+        }
+        
+        @media (max-width: 1050px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .brand {
+                min-width: 0;
+            }
+        }
+        
+        .panel {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 16px;
+        }
+        
+        .panel h2 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+        
+        .panel p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+        
+        .actions-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        
+        .btn {
+            appearance: none;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: #0f172a;
+            padding: 10px 12px;
+            border-radius: 12px;
+            font-weight: 900;
+            cursor: pointer;
+            font-size: 13.5px;
+        }
+        
+        .btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        
+        .btn.primary {
+            border-color: rgba(11, 92, 255, .25);
+            background: rgba(11, 92, 255, .06);
+            color: #0b5cff;
+        }
+        
+        .titlebar {
+            margin-top: 18px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .titlebar h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .titlebar .small {
+            color: var(--muted);
+            font-size: 13.5px;
+            font-weight: 700;
+        }
+        
+        .grid {
+            scroll-margin-top: 20px;
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        
+        @media (max-width: 1100px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        
+        @media (max-width: 650px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 6px 18px rgba(2, 6, 23, .05);
+            padding: 14px;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: #eef2ff;
+            border: 1px solid #e0e7ff;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            color: #1d4ed8;
+            flex: 0 0 auto;
+        }
+        
+        .card h4 {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+        
+        .meta {
+            margin-top: 6px;
+            color: var(--muted);
+            font-weight: 800;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .meta span {
+            font-weight: 800;
+            color: #0f172a;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 6px 8px;
+            border-radius: 10px;
+            display: inline-block;
+            word-break: break-word;
+        }
+        
+        .card .meta span.dim {
+            color: var(--muted);
+            background: #fff;
+        }
+        
+        .card .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .linkbtn {
+            flex: 1 1 110px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #fff;
+            padding: 10px 12px;
+            text-decoration: none;
+            font-weight: 900;
+            color: #0f172a;
+            font-size: 13.5px;
+        }
+        
+        .linkbtn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        
+        .linkbtn.primary {
+            border-color: rgba(11, 92, 255, .25);
+            background: rgba(11, 92, 255, .06);
+            color: #0b5cff;
+        }
+        /* Send message to all */
+        
+        .sendbox {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        
+        @media (max-width: 980px) {
+            .sendbox {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        label {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 800;
+        }
+        
+        input,
+        textarea {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-size: 14px;
+            outline: none;
+            background: #fff;
+            color: #0f172a;
+            font-family: inherit;
+        }
+        
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+        
+        footer {
+            margin-top: 22px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13.5px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <div class="logo">R</div>
+                <div>
+                    <h1>Robast Telecomunication Software</h1>
+                    <p>Contact directory • Call / Email buttons • Social links</p>
+                </div>
+            </div>
+
+            <nav class="social" aria-label="Social media links">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4z"/></svg>
+                    Facebook
+                </a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.4 4.8a9.2 9.2 0 0 1-2.7.7 4.7 4.7 0 0 0 2.1-2.6 9.4 9.4 0 0 1-3 1.1 4.6 4.6 0 0 0-8 4.2A13.1 13.1 0 0 1 2.3 3.4a4.6 4.6 0 0 0 1.4 6.2 4.5 4.5 0 0 1-2.1-.6v.1a4.6 4.6 0 0 0 3.7 4.5 4.7 4.7 0 0 1-2.1.1 4.6 4.6 0 0 0 4.3 3.2A9.3 9.3 0 0 1 0 18.8a13.1 13.1 0 0 0 20.2-11c0-.2 0-.4-.1-.6a9.4 9.4 0 0 0 2.3-2.4z"/></svg>
+                    Twitter
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 7.1a6.8 6.8 0 0 1-4.2-1.5v8.1a6.2 6.2 0 1 1-5.4-6.1v3.2a3 3 0 1 0 2.2 2.9V2h3.2c.2 2.2 1.7 4 4.2 4.3v.8z"/></svg>
+                    TikTok
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="18" cy="6.5" r="1.3"/></svg>
+                    Instagram
+                </a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="panel">
+                <h2>Directory</h2>
+                <p>
+                    No searching. When you open the page, you can see all the contacts immediately. Browse the contact list below and use the Call or Email buttons to get in touch. Use <b>Call</b> or <b>Email</b> for quick communication.
+                </p>
+                <div class="actions-row">
+                    <button class="btn" type="button" onclick="jumpToContacts()">
+            Jump to Contacts
+          </button>
+                    <button class="btn primary" type="button" onclick="openAllMessage()">
+            Message All Contacts
+          </button>
+                </div>
+            </div>
+
+            <div class="panel" id="allMessagePanel">
+                <h2>Send message to all</h2>
+                <p>
+                    This will open your email app with all contacts in <b>BCC</b>. (You can edit the message before sending.)
+                </p>
+
+                <div class="sendbox">
+                    <div class="field">
+                        <label for="subject">Subject</label>
+                        <input id="subject" type="text" value="Robast Telecomunication Update" />
+                    </div>
+
+                    <div class="field">
+                        <label for="count">Contacts</label>
+                        <input id="count" type="text" value="30 contacts" readonly />
+                    </div>
+
+                    <div class="field" style="grid-column: 1 / -1;">
+                        <label for="message">Message</label>
+                        <textarea id="message">Hello team, please be informed about today’s update from Robast Telecomunication Software.</textarea>
+                    </div>
+                </div>
+
+                <div class="actions-row">
+                    <button class="btn primary" type="button" onclick="sendToAll()">Open email to send</button>
+                    <button class="btn" type="button" onclick="resetMessage()">Reset message</button>
+                </div>
+
+                <p id="emailNote" style="margin-top:10px; font-size:13.5px; color:var(--muted); font-weight:800;">
+                    Note: Emails are example emails. Replace them with real ones if needed.
+                </p>
+            </div>
+        </section>
+
+        <div class="titlebar">
+            <h3>Contacts</h3>
+            <div class="small">Contact details</div>
+        </div>
+
+        <section class="grid" id="contactsGrid">
+            <!-- Cards will be injected by JS (keeps the HTML clean and avoids “AI-looking” repetitive markup) -->
+        </section>
+
+        <footer>
+            © <span id="year"></span> Robast Telecomunication Software • HTML + CSS (with small JS for message-to-all)
+        </footer>
+    </div>
+
+    <script>
+        // 30 Luo-name contacts (Kisumu County) — guessed examples
+        // NOTE: Replace phone/email with real ones you have permission to use.
+        const contacts = [{
+                name: "Achieng Ochieng",
+                phone: "+254711 472936",
+                email: "achieng.ochieng@robast.example"
+            }, {
+                name: "Alao Ogot",
+                phone: "+254701 518274",
+                email: "alao.ogot@robast.example"
+            }, {
+                name: "Atieno Odhiambo",
+                phone: "+254790 184265",
+                email: "atieno.odhiambo@robast.example"
+            }, {
+                name: "Betty Ouma",
+                phone: "+254720 665134",
+                email: "betty.ouma@robast.example"
+            }, {
+                name: "Benga Nyakundi",
+                phone: "+254730 243519",
+                email: "benga.nyakundi@robast.example"
+            }, {
+                name: "Damaris Adero",
+                phone: "+254700 612589",
+                email: "damaris.adero@robast.example"
+            }, {
+                name: "Dido Abiero",
+                phone: "+254705 739821",
+                email: "dido.abiero@robast.example"
+            }, {
+                name: "Dina Otieno",
+                phone: "+254721 402916",
+                email: "dina.otieno@robast.example"
+            }, {
+                name: "Ephantus Odundo",
+                phone: "+254708 559031",
+                email: "ephantus.odundo@robast.example"
+            }, {
+                name: "Eunice Awiti",
+                phone: "+254716 208744",
+                email: "eunice.awiti@robast.example"
+            },
+
+            {
+                name: "James Odhiambo",
+                phone: "+254789 317024",
+                email: "james.odhiambo@robast.example"
+            }, {
+                name: "Jackline Auma",
+                phone: "+254798 146508",
+                email: "jackline.auma@robast.example"
+            }, {
+                name: "Joan Achieng",
+                phone: "+254712 741206",
+                email: "joan.achieng@robast.example"
+            }, {
+                name: "Julius Ochieng",
+                phone: "+254775 210984",
+                email: "julius.ochieng@robast.example"
+            }, {
+                name: "Kefa Ochieng",
+                phone: "+254770 648392",
+                email: "kefa.ochieng@robast.example"
+            }, {
+                name: "Kevin Odiwuor",
+                phone: "+254750 634901",
+                email: "kevin.odiwuor@robast.example"
+            }, {
+                name: "Linet Otieno",
+                phone: "+254791 905416",
+                email: "linet.otieno@robast.example"
+            }, {
+                name: "Linda Auma",
+                phone: "+254722 287450",
+                email: "linda.auma@robast.example"
+            }, {
+                name: "Lucy Wanjala",
+                phone: "+254790 468902",
+                email: "lucy.wanjala@robast.example"
+            }, {
+                name: "Mary Atieno",
+                phone: "+254716 238715",
+                email: "mary.atieno@robast.example"
+            },
+
+            {
+                name: "Nadia Achieng’",
+                phone: "+254714 270861",
+                email: "nadia.achieng@robast.example"
+            }, {
+                name: "Naomi Ogutu",
+                phone: "+254721 180934",
+                email: "naomi.ogutu@robast.example"
+            }, {
+                name: "Odhiambo Deya",
+                phone: "+254702 611975",
+                email: "odhiambo.deya@robast.example"
+            }, {
+                name: "Olive Wekesa",
+                phone: "+254721 650984",
+                email: "olive.wekesa@robast.example"
+            }, {
+                name: "Philip Simiyu",
+                phone: "+254733 701245",
+                email: "philip.simiyu@robast.example"
+            }, {
+                name: "Rebecca Auma",
+                phone: "+254715 550284",
+                email: "rebecca.auma@robast.example"
+            }, {
+                name: "Richard Omollo",
+                phone: "+254780 219742",
+                email: "richard.omollo@robast.example"
+            }, {
+                name: "Ruth Ahero",
+                phone: "+254712 909144",
+                email: "ruth.ahero@robast.example"
+            }, {
+                name: "Sarah Gony",
+                phone: "+254717 333629",
+                email: "sarah.gony@robast.example"
+            }, {
+                name: "Thomas Baka",
+                phone: "+254790 186744",
+                email: "thomas.baka@robast.example"
+            }
+        ];
+
+        function initials(name) {
+            const parts = name.trim().split(/\s+/);
+            const a = parts[0]?.[0] || "";
+            const b = parts[1]?.[0] || "";
+            return (a + b).toUpperCase();
+        }
+
+        const grid = document.getElementById("contactsGrid");
+        grid.innerHTML = contacts.map(c => `
+      <article class="card">
+        <div class="card-top">
+          <div class="avatar">${initials(c.name)}</div>
+          <div>
+            <h4>${c.name}</h4>
+            <div class="meta">
+              <div class="dim">Phone</div>
+              <span>${c.phone}</span>
+              <div class="dim">Email</div>
+              <span>${c.email}</span>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="linkbtn primary" href="tel:${c.phone.replace(/\s/g,'')}">📞 Call</a>
+          <a class="linkbtn" href="mailto:${c.email}">✉️ Email</a>
+        </div>
+      </article>
+    `).join("");
+
+        // Smoothly move to the contact list.
+        function jumpToContacts() {
+            document.getElementById("contactsGrid").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
+        // Message to all (mailto with BCC)
+        function openAllMessage() {
+            const panel = document.getElementById("allMessagePanel");
+            panel.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
+        function resetMessage() {
+            document.getElementById("message").value = "Hello team, please be informed about today’s update from Robast Telecomunication Software.";
+            document.getElementById("subject").value = "Robast Telecomunication Update";
+        }
+
+        function sendToAll() {
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const emails = contacts.map(c => c.email).filter(Boolean);
+
+            if (!emails.length) {
+                alert("No emails found in the list. Add emails to enable 'message all'.");
+                return;
+            }
+
+            const bcc = emails.join(",");
+            const mailto =
+                `mailto:?bcc=${encodeURIComponent(bcc)}` +
+                `&subject=${encodeURIComponent(subject)}` +
+                `&body=${encodeURIComponent(message)}`;
+
+            window.location.href = mailto;
+        }
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+        document.getElementById("count").value = `${contacts.length} contacts`;
+    </script>
+</body>
+
+</html>
